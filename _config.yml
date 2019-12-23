@@ -2,3 +2,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+
+name: Daniel Frampton Developer Website
+
+permalink: /blog/:year/:month/:day/:title
