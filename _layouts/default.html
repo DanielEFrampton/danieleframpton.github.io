@@ -4,11 +4,21 @@
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Baskervville&display=swap" rel="stylesheet">
     {% feed_meta %}
     {% seo %}
   </head>
   <body>
-    {% include navigation.html %}
-    {{ content }}
+    <div id="top-block">
+      <header>
+        {% include navigation.html %}
+      </header>
+      <main>
+        {{ content }}
+      </main>
+    </div>
+      <footer>
+        {% include footer.html %}
+      </footer>
   </body>
 </html>
