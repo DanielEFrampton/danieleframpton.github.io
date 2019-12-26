@@ -1,4 +1,20 @@
 <nav>
-  <a href='/'>Home</a>
-  <a href="/guides/all_things_auth.html">All Things Auth</a>
+  <ul>
+    <li><a href='/'>{{ 'Home' | upcase }}</a></li>&#10019;
+    <li><a href='/blog/'>{{ 'Blog' | upcase }}</a></li>&#10019;
+    <li class='dropdown-menu'><span id='dropdown-menu-title'>{{ 'Guides' | upcase }}</span>
+      <ul class="dropdown-menu-items">
+        {% for guide in site.guides %}
+          <li><a href='{{ guide.url }}'>{{ guide.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </li>&#10019;
+    <li class='dropdown-menu'><span id='dropdown-menu-title'>{{ 'Social' | upcase }}</span>
+      <ul class="dropdown-menu-items">
+        <li><a href="https://github.com/DanielEFrampton">{{ 'Github' | upcase }}</a></li>
+        <li><a href="https://www.linkedin.com/in/danielframpton">{{ 'LinkedIn' | upcase }}</a></li>
+        <li><a href="https://twitter.com/intent/user?screen_name=DanielEFrampton">{{ 'Twitter' | upcase }}</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
