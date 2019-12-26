@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About
+title: 'All Things Auth'
 ---
 
 # All Things Auth: Authentication & Authorization in Rails
