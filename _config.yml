@@ -6,3 +6,7 @@ plugins:
 name: Daniel Frampton Developer Website
 
 permalink: /blog/:year/:month/:day/:title
+
+collections:
+  guides:
+    output: true
