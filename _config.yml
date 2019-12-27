@@ -3,6 +3,10 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+markdown: kramdown
+
+highlighter: rouge
+
 name: Daniel Frampton Developer Website
 
 permalink: /blog/:year/:month/:day/:title
