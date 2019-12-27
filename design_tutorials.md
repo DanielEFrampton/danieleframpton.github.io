@@ -25,3 +25,4 @@ Here's where I sourced certain resources on the website:
 
 - [Rails Icon - Dan Leech](https://www.iconfinder.com/icons/167695/rails_icon)
 - [Ruby Icon - Bogdan Rosu Creative](https://www.iconfinder.com/icons/430094/diamond_ruby_icon)
+- [Pygments-CSS Tango Theme - Richard Leland](https://github.com/richleland/pygments-css)
