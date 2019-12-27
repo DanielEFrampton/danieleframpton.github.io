@@ -42,27 +42,31 @@ One other use of Bcrypt is necessary and it occurs during login of a previously 
 
 How many people can be logged in to Facebook at a given time? Amazon? How do their servers know whether you're logged in or not at your particular computer in your particular browser? They do it by storing temporary but secure data about a particular user in a _session_, a server-controlled file that works very similarly to a cookie except it is encrypted and unalterable by users. Most web frameworks store their sessions on the server itself, but by default Rails stores its sessions on the respective clients' computers to save storage space and improve speed.
 
-When a user logs into an app, a session is created
+_(This section is under construction.)_
+
+<!-- When a user logs into an app, a session is created
 
 (creating a shared current_user method to access the user across all views)
 
 (saving the user_id to session when logging in)
 
-(deleting the user_id key/value pair from session when logging out)
+(deleting the user_id key/value pair from session when logging out) -->
 
 
 ## Authorization
 
 Unlike authentication, authorization is something we're not likely to be as familiar with as web users; or at least, we weren't aware of it. If you've ever created a Facebook group or event, created an event on Evite, or opened a new channel on Slack, you've experienced having a different level of access than other users in a web app: perhaps the ability to invite new people, change the details about a group or event, or to delete that group or event. Authorization is the process of granting such different levels of access to different groups of users.
 
-(namespacing for organization of files)
+_(This section is under construction.)_
+
+<!-- (namespacing for organization of files)
 
 (enums to track different roles and gain methods to check them on current_user)
 
 (inherited before_action methods on namespaced controllers to restrict access to particular roles)
 
 (using partials to maintain shared content across views in different namespaces)
-
+ -->
 ## Additional Reading
 
 - [Sessions, Cookies, and Authentication - The Odin Project](https://www.theodinproject.com/courses/ruby-on-rails/lessons/sessions-cookies-and-authentication)
