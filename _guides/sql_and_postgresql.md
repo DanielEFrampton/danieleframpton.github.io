@@ -37,7 +37,7 @@ As [part of the coursework](https://backend.turing.io/module2/intermission_work/
 
       `INSERT` allows for the addition of new rows to a table. Its basic syntax looks like this:
 
-       ```sql
+       ``` sql
        INSERT INTO table(column_name1, column_name2) VALUES ('String Value', 0);
        ```
 
@@ -45,13 +45,18 @@ As [part of the coursework](https://backend.turing.io/module2/intermission_work/
 
       `SELECT` opens a query statement used to display data according to the criteria and conditions that follow it. Its basic syntax looks like the following:
 
-      ```sql
-      SELECT fruits.name, sales.created_at FROM fruits INNER JOIN sales ON fruits.id=sales.fruit_id;
+      ``` sql
+      SELECT fruits.name, sales.created_at
+      FROM fruits
+      INNER JOIN sales ON fruits.id=sales.fruit_id;
       ```
       The arguments that immediately follow `SELECT` specify which columns to retrieve data from; the argument following `FROM` specifies which table or tables to retrieve that data from, using `INNER JOIN` (or another `JOIN` type) to specify how to relate those tables; and the argument following `ON` specifies which columns should match each other for a specific `JOIN`. Multiple joins can be made to the first table following `FROM`, each with its own `ON` criteria, like this:
 
-      ```sql
-      SELECT customers.name, fruits.name, sales.created_at FROM fruits INNER JOIN sales ON fruits.id=sales.fruit_id INNER JOIN customers ON sales.customer_id=customers.id;
+      ``` sql
+      SELECT customers.name, fruits.name, sales.created_at
+      FROM fruits
+      INNER JOIN sales ON fruits.id=sales.fruit_id
+      INNER JOIN customers ON sales.customer_id=customers.id;
       ```
       Alternatively, `*` can be used as the single argument of `SELECT` to return all the columns in a given `FROM` table.
 
@@ -59,17 +64,17 @@ As [part of the coursework](https://backend.turing.io/module2/intermission_work/
 
       `WHERE` further restricts which rows are returned by a `SELECT` statement or altered by an `UPDATE` or `DELETE` statement by providing additional criteria. Its basic syntax looks like this:
 
-      ```sql
+      ``` sql
       UPDATE fruits SET quantity=17 WHERE name='bananas';
       ```
-      ```sql
+      ``` sql
       DELETE FROM fruits WHERE name='oranges';
       ```
-      ```sql
+      ``` sql
       SELECT * FROM fruits WHERE name='apples';
       ```
       In addition to comparing specific values, `WHERE` can use SQL methods to perform calculations, such as looking at the length of a string:
-      ```sql
+      ``` sql
       SELECT * FROM fruits WHERE LENGTH(name)=7;
       ```
 
@@ -77,7 +82,7 @@ As [part of the coursework](https://backend.turing.io/module2/intermission_work/
 
       `ORDER BY` can be used in conjunction with `SELECT` to order the results of the query by the values in a specific column, either by ascending (the default) or descending order. Its basic syntax looks like this:
 
-      ```sql
+      ``` sql
       SELECT * from fruits ORDER BY name DESC;
       ```
 
@@ -85,34 +90,42 @@ As [part of the coursework](https://backend.turing.io/module2/intermission_work/
 
         As described above under `SELECT`, `INNER JOIN` is used to specify the relationship between tables when retrieving data from a combination of two or more tables. It is an "inner join" in the sense that it returns only what the two tables have in common, like the internal overlapping space in a Venn diagram. The commonality in question is specified by what follows the `ON` keyword, which specifies which columns are being compared and how. Its basic syntax looks like this:
 
-        ```sql
-        SELECT fruits.name, sales.created_at FROM fruits INNER JOIN sales ON fruits.id=sales.fruit_id;
+        ``` sql
+        SELECT fruits.name, sales.created_at
+        FROM fruits
+        INNER JOIN sales ON fruits.id=sales.fruit_id;
         ```
         With this and other kinds of joins, an alias for any table can be given by simply inserting it one space after the table. E.g.,
-        ```sql
-        SELECT frt.name, sls.created_at FROM fruits frt INNER JOIN sales sls ON frt.id=sls.fruit_id;
+        ``` sql
+        SELECT frt.name, sls.created_at
+        FROM fruits frt
+        INNER JOIN sales sls ON frt.id=sls.fruit_id;
         ```
 
 1. How can you limit which columns you select from a table?
 
     By providing specific column names after `SELECT` and before `FROM`, only the data in those columns is retrieve from rows in the table specified by `FROM`. E.g.,
 
-    ```sql
+    ``` sql
     SELECT name, membercost FROM cd.facilities
     ```
 1. How can you limit which rows you select from a table?
 
     The `WHERE` keyword can be used to filter which rows are returned from those candidates specified by `SELECT` and `FROM`. It can take one or more conditions by which to filter them. E.g.,
-    ```sql
+    ``` sql
     SELECT * FROM cd.facilities WHERE membercost > 0
     ```
     Comparisons can be made against dates if the column uses a date-related datatype by referring to dates using the YYYY-MM-DD format as a string. E.g.,
-    ```sql
-    SELECT memid, surname, firstname, joindate FROM cd.members WHERE joindate > '2012-08-31';
+    ``` sql
+    SELECT memid, surname, firstname, joindate
+    FROM cd.members
+    WHERE joindate > '2012-08-31';
     ```
     Multiple `WHERE` conditions are combined using the `AND` and `OR` keywords. E.g.,
     ```sql
-    SELECT facid, name, membercost, monthlymaintenance FROM cd.facilities WHERE membercost > 0 AND membercost < monthlymaintenance / 50;
+    SELECT facid, name, membercost, monthlymaintenance
+    FROM cd.facilities
+    WHERE membercost > 0 AND membercost < monthlymaintenance / 50;
     ```
     Additionally, the `LIKE` keyword can be used in place of a comparison operator (i.e., =, <, >, >=, <=, etc.) to perform pattern matching. It is provided a string in quotations, wherein `%` can take the place of any number of characters and `_` takes the place of any single character. E.g.,
     ```sql
@@ -134,7 +147,8 @@ As [part of the coursework](https://backend.turing.io/module2/intermission_work/
     ```
     Additionally, using the `CASE...WHEN...THEN...END` keywords which SQL uses for conditional statements, a new column can be made with conditional values. E.g.,
      ```sql
-     SELECT name, CASE WHEN (monthlymaintenance > 100) THEN 'expensive' ELSE 'cheap' END AS cost FROM cd.facilities;
+     SELECT name, CASE WHEN (monthlymaintenance > 100) THEN 'expensive' ELSE 'cheap' END AS cost
+     FROM cd.facilities;
      ```
 1. How can you sort your output from a SQL statement?
 
@@ -161,7 +175,7 @@ As [part of the coursework](https://backend.turing.io/module2/intermission_work/
     ```
     Outer joins come in the varieties of `LEFT JOIN`, `RIGHT JOIN`, and `FULL JOIN`. `LEFT JOIN` produces all of the rows on the "left" side of the join (i.e., the table introduced by `FROM`) whether or not they match a foreign key on the "right" side of the join. In other words, in a left outer join the rows from the right side are optional rather than mandatory. `RIGHT JOIN` works the same but in the other direction, and `FULL JOIN` produces all rows on both sides and is rarely used. E.g.,
     ```sql
-    SELECT 	mems.firstname AS memfname,
+    SELECT mems.firstname AS memfname,
     mems.surname AS memsname,
     refs.firstname AS recfname,
     refs.surname AS recsname

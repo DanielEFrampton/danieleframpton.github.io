@@ -18,23 +18,23 @@ When combined with an online repository service, typically GitHub, developers ca
 While [there are graphic user interfaces (GUIs) available for using Git](https://git-scm.com/download/gui/windows), it is typically and most efficiently used in the command line interface, namely through Terminal in Mac OSX (the context this tutorial assumes). In order to set up Git in Mac OSX there are several preliminary steps you'll need to take:
 
 1. Install the Xcode Command Line Tools (CLT) by entering the following in Terminal:
-    ```
+    ``` shell
     xcode-select --install
     ```
 2. Install the [Homebrew package manager](https://brew.sh) by entering the following in Terminal:
-    ```
+    ``` shell
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ```
 3. Use Homebrew to install Git by entering the following in Terminal:
-    ```
+    ``` shell
     brew install git
     ```
 
 Once those steps are complete, you can enter ```git --version``` in Terminal to confirm it is installed. You should see something like the following:
 
-```
-git version 2.23.0
-```
+  ``` shell
+  git version 2.23.0
+  ```
 
 Congratulations! Now you're ready to start using Git.
 
@@ -104,7 +104,7 @@ This example uses the above Terminal commands to create a directory and files wi
 
     5. As you make changes to these commited files, you can use the command `git diff` to see a rundown of specific differences between those "tracked" files and the versions of them most recently committed. E.g., if you opened "useless_file.txt" in a text editor (such as [Atom](atom.io)) and added the line `"Here's some useless information"` to it, using `git diff` in its working directory after an initial commit might return something like this:
 
-    ```
+    ``` shell
     diff --git a/useless_file.txt b/useless_file.txt
     index e69de29..e63509c 100644
     --- a/useless_file.txt
