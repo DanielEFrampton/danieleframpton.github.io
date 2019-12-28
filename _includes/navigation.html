@@ -2,14 +2,14 @@
   <ul>
     <li><a href='/'>{{ 'Home' | upcase }}</a></li>&#10019;
     <!-- <li><a href='/blog/'>{{ 'Blog' | upcase }}</a></li>&#10019; -->
-    <li class='dropdown-menu'><span id='dropdown-menu-title'>{{ 'Guides' | upcase }}</span>
+    <li class='dropdown-menu'><span id='dropdown-menu-title'>{{ 'Guides' | upcase }}&#9662;</span>
       <ul class="dropdown-menu-items">
         {% for guide in site.guides %}
           <li><a href='{{ guide.url }}'>{{ guide.title }}</a></li>
         {% endfor %}
       </ul>
     </li>&#10019;
-    <li class='dropdown-menu'><span id='dropdown-menu-title'>{{ 'Profiles' | upcase }}</span>
+    <li class='dropdown-menu'><span id='dropdown-menu-title'>{{ 'Profiles' | upcase }}&#9662;</span>
       <ul class="dropdown-menu-items">
         <li><a href="https://github.com/DanielEFrampton">{{ 'Github' | capitalize }}</a></li>
         <li><a href="https://www.linkedin.com/in/danielframpton">{{ 'LinkedIn' | capitalize }}</a></li>
