@@ -17,6 +17,7 @@ body {
 }
 
 h1 {
+  text-align: center;
   font-size: 1.5em;
 }
 
@@ -75,6 +76,15 @@ nav a:last-of-type:after {
   display: none;
 }
 
+.dropdown-menu-items a {
+  color: white;
+}
+
+.dropdown-menu-items a:hover {
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .dropdown-menu-items li {
   list-style: none;
   padding: .25em;
@@ -89,11 +99,6 @@ nav a:last-of-type:after {
   z-index: 2;
   cursor: pointer;
   position: relative;
-}
-
-#dropdown-menu-title::after {
-  font-size: .5em;
-  content: ' \25BE';
 }
 
 main {
@@ -132,12 +137,16 @@ main a:visited, footer a:visited {
   flex-grow: 1;
 }
 
-.project-display-box {
+.project-display-box:any-link {
   background-color: peru;
   color: white;
+  text-decoration: none;
+  font-size: 1.5em;
 
-  width: 350px;
-  height: 100px;
+  width: 40%;
+  min-width: 300px;
+  height: 20%;
+  min-height: 100px;
 
   margin-bottom: 1em;
   margin-top: 1em;
@@ -149,14 +158,12 @@ main a:visited, footer a:visited {
   align-items: center;
 }
 
-.project-display-box a:any-link {
-  text-decoration: none;
-  font-size: 2em;
-  color: white;
+.project-display-box:hover > * {
+  font-weight: bold;
 }
 
-.project-display-box img {
-  height: 2em;
+.project-display-box > img {
+  height: 1.5em;
 }
 
 footer {
@@ -166,4 +173,9 @@ footer {
   margin-left: 20%;
   margin-right: 20%;
   text-align: center;
+}
+
+#profile {
+  margin-left: 5%;
+  margin-right: 5%;
 }
