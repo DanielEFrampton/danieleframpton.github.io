@@ -22,6 +22,7 @@ h1 {
 }
 
 h2 {
+  text-align: center;
   font-size: 1.25em;
 }
 
@@ -102,10 +103,8 @@ nav a:last-of-type:after {
 }
 
 main {
-  margin-top: 1%;
-  margin-left: 20%;
+  margin: 1% 20% 0% 20%;
   width: auto;
-  margin-right: 20%;
 
   display: flex;
   flex-direction: column;
@@ -178,4 +177,15 @@ footer {
 #profile {
   margin-left: 5%;
   margin-right: 5%;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: .75em;
+  }
+
+  main {
+    margin: 1% 10% 0%;
+    font-size: 1.25em;
+  }
 }
