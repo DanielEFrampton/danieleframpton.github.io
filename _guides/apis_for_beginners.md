@@ -1,3 +1,8 @@
+---
+layout: default
+title: 'APIs for Beginners'
+---
+
 # APIs for Beginners
 
 I'm a software developer in training (and in fact) at Turing School of Software & Design. You might not know it, but teaching others is one of the best ways to learn something yourself--and you bring people along with you in the process. Towards that end, as I'm learning about APIs I'll write this guide. I hope it benefits you and inspires you to share your own learning in some way with others!
@@ -24,7 +29,7 @@ In the world of software development, object-oriented programming (OOP) is the p
 
 Because APIs send and receive HTTP requests, you can access them the same way you use websites: through your browser. But because APIs send their responses in JSON, and your browser is optimized for displaying HTML, it's not the best way to try out an API. See, for example, what Github's API sends you when [sending a request to view my profile info](https://api.github.com/users/danieleframpton).
 
-```JSON
+```json
 {
   "login": "DanielEFrampton",
   "id": 40702808,
@@ -79,23 +84,23 @@ Ruby has a built-in library called Net:HTTP which the popular **gems** (freely s
 
 To create a request, use the Faraday class method `get` with the URL as the argument and store the return value in a local variable. E.g.,
 
-  ```Ruby
+  ```ruby
   response = Faraday.get 'https://api.github.com/users/DanielEFrampton'
   ```
 
 At this point the `response` variable is storing a Faraday::Response object with all the HTTP response data. (For more about HTTP requests and responses, see [this Turing lesson](https://backend.turing.io/module2/lessons/request_response_anatomy).) To extract the JSON data from that HTTP request, you can use the #body instance method available to Response objects and store the return value in another variable. E.g.,
 
-  ```Ruby
+  ```ruby
   body = response.body
   ```
 
 The `body` variable now contains the JSON data. But, unless it is formatted otherwise by Postman or a browser as it was in the above example, JSON data is transmitted as one long string:
-```Ruby
+```ruby
 "{\"login\":\"DanielEFrampton\",\"id\":40702808,\"node_id\":\"MDQ6VXNlcjQwNzAyODA4\",\"avatar_url\":\"https://avatars1.githubusercontent.com/u/40702808?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/DanielEFrampton\",\"html_url\":\"https://github.com/DanielEFrampton\",\"followers_url\":\"https://api.github.com/users/DanielEFrampton/followers\",\"following_url\":\"https://api.github.com/users/DanielEFrampton/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/DanielEFrampton/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/DanielEFrampton/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/DanielEFrampton/subscriptions\",\"organizations_url\":\"https://api.github.com/users/DanielEFrampton/orgs\",\"repos_url\":\"https://api.github.com/users/DanielEFrampton/repos\",\"events_url\":\"https://api.github.com/users/DanielEFrampton/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/DanielEFrampton/received_events\",\"type\":\"User\",\"site_admin\":false,\"name\":\"Daniel Frampton\",\"company\":null,\"blog\":\"danieleframpton.github.io\",\"location\":\"Broomfield, CO\",\"email\":null,\"hireable\":true,\"bio\":\"Systems-oriented critical thinker with excellentwritten and verbal communication, excited by opportunities to problem-solve and help connect people using tech.\",\"public_repos\":44,\"public_gists\":6,\"followers\":4,\"following\":2,\"created_at\":\"2018-06-29T20:04:02Z\",\"updated_at\":\"2020-01-11T16:19:26Z\"}"
 ```
 
 To make this unwieldly mash of quotes usable as a Hash without going through the trouble of splitting it along certain separators and cleaning up all the data types, Ruby's built-in JSON module and its #parse class method can be used to quickly reformat it:
-```Ruby
+```ruby
 hash = JSON.parse(body)
 ```
 
