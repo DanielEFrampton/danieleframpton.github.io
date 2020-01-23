@@ -17,12 +17,18 @@ body {
 }
 
 h1 {
-  text-align: center;
   font-size: 1.5em;
 }
 
-h2 {
+#home-title {
   text-align: center;
+}
+
+#projects-title {
+  text-align: center;
+}
+
+h2 {
   font-size: 1.25em;
 }
 
@@ -111,8 +117,27 @@ main {
   align-content: flex-start;
 }
 
-p {
-  text-indent: 2em;
+table {
+  border: 1px solid darkgray;
+  border-collapse: collapse;
+  width: fit-content;
+}
+
+table * {
+  border: 1px solid darkgray;
+  padding: .5em;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: gainsboro;
+}
+
+tbody tr:nth-child(even) {
+  background-color: WhiteSmoke;
+}
+
+th * {
+  font-weight: bold;
 }
 
 li > p {
