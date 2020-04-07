@@ -187,7 +187,8 @@ main a:visited, footer a:visited {
 }
 
 .project-display-box > img {
-  height: 1.5em;
+  height: 25px;
+  padding-left: 5px;
 }
 
 footer {
